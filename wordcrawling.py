@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import re
+import sys
 from time import sleep
 from bs4 import BeautifulSoup
 import requests
@@ -63,4 +64,21 @@ def entry_parser(feed_urls):
     return "hoge"
 
 if __name__ == "__main__":
-    entry_parser(links[:5])
+    args = sys.argv
+    if len(args) != 1:
+     if args[1] == "test":
+       if len(args) > 2:
+        print("changelinks test")
+        links_count = int(args[2])
+        entry_parser(links[:links_count])  
+       else:  
+        print("test")
+        entry_parser(links[:5])  
+     elif args[1] == "ranqmediacrawling":
+       print("all")
+       entry_parser(links)
+     else:
+       print("syntax error")
+    else:
+     print("nonpatch")
+     entry_parser(links[:5])
