@@ -63,4 +63,4 @@ def entry_parser(feed_urls):
     return "hoge"
 
 if __name__ == "__main__":
-    entry_parser(links)
+    entry_parser(links[:5])
