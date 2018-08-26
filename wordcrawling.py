@@ -65,11 +65,15 @@ def entry_parser(feed_urls):
 
 if __name__ == "__main__":
     args = sys.argv
-    print(args)
     if len(args) != 1:
      if args[1] == "test":
-       print("test")
-       entry_parser(links[:5])  
+       if len(args) > 2:
+        print("changelinks test")
+        links_count = int(args[2])
+        entry_parser(links[:links_count])  
+       else:  
+        print("test")
+        entry_parser(links[:5])  
      elif args[1] == "ranqmediacrawling":
        print("all")
        entry_parser(links)
@@ -78,4 +82,3 @@ if __name__ == "__main__":
     else:
      print("nonpatch")
      entry_parser(links[:5])
-      
