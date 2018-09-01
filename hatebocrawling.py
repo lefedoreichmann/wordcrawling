@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 import requests
 import MeCab as mc
 import feedparser
-from crawllist import *
+from harebolist import *
 from newstitles import *
 from addstopwords import *
 import urllib
