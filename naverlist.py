@@ -1,0 +1,15 @@
+links = [
+"https://matome.naver.jp/feed/girls",
+"https://matome.naver.jp/feed/news",
+"https://matome.naver.jp/feed/entertainment",
+"https://matome.naver.jp/feed/spot",
+"https://matome.naver.jp/feed/life",
+"https://matome.naver.jp/feed/recipe",
+"https://matome.naver.jp/feed/wellness",
+"https://matome.naver.jp/feed/business",
+"https://matome.naver.jp/feed/tech",
+"https://matome.naver.jp/feed/design",
+"https://matome.naver.jp/feed/trivia",
+"https://matome.naver.jp/feed/humor",
+"https://matome.naver.jp/feed/popular",
+]
