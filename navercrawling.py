@@ -41,7 +41,7 @@ def entry_parser(feed_urls):
          for entry in feed_result.entries:
 
              if entry.title not in enlist:
-                    ent_text+=entry.title
+		    ent_text+=re.sub(r'[0-9０-９]', "", entry.title)
                     r.zadd(feed_url+"/title/"+str(today),0,str(entry.title))
              else:
                 continue
