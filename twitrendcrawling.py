@@ -64,8 +64,8 @@ def entry_parser(feed_urls):
                 #print(key,value)
                 r.zincrby(feed_url+"/"+str(today),str(key),int(value))   #当日URLサイトごと
 
-                r.zincrby("all_urls/"+str(today),str(key),int(value)) #当日全URLサイト
-                r.zincrby("all_urls/"+str(today)+"/"+str(time),str(key),int(value)) #当日全URLサイト1時間ごと
+                r.zincrby("twitrend_urls/"+str(today),str(key),int(value)) #当日全URLサイト
+                r.zincrby("twitrend_urls/"+str(today)+"/"+str(time),str(key),int(value)) #当日全URLサイト1時間ごと
          #sleep(3)
          #sleep( 2 )
     return "hoge"
