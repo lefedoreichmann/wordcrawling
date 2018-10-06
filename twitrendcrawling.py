@@ -39,7 +39,7 @@ def entry_parser(feed_urls):
          r.delete(feed_url+"/title/"+str(yesterday))
          for container in containers:
              if container.find("a").next_element not in enlist:
-		    ent_text+=re.sub(r'[0-9０-９]', "", container.find("a").next_element)
+                    ent_text+=re.sub(r'[0-9０-９]', "", container.find("a").next_element)
                     r.zadd(feed_url+"/title/"+str(today),0,str(container.find("a").next_element))
              else:
                 continue
