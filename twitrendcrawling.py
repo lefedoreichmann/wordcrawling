@@ -37,10 +37,18 @@ def entry_parser(feed_urls):
          ent_text =""
          enlist = [x.decode('utf-8') for x in r.zrange(feed_url+"/title/"+str(today),0,-1)]
          r.delete(feed_url+"/title/"+str(yesterday))
+         for hour in range(24):
+             if hour <10:
+                r.delete(feed_url+"/title/"+str(yesterday)+"/0"+str(hour))
+                r.delete("twitrend_urls/title/"+str(yesterday)+"/0"+str(hour))
+             else:
+                r.delete(feed_url+"/title/"+str(yesterday)+"/"+str(hour))
+                r.delete("twitrend_urls/title/"+str(yesterday)+"/"+str(hour))
          for container in containers:
              if container.find("a").next_element not in enlist:
                     ent_text+=re.sub(r'[0-9０-９]', "", container.find("a").next_element)
                     r.zadd(feed_url+"/title/"+str(today),0,str(container.find("a").next_element))
+                    r.zadd("twitrend_urls/title/"+str(today)+"/"+str(time),0,str(container.find("a").next_element))
              else:
                 continue
          if ent_text == "":

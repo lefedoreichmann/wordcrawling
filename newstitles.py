@@ -1,4 +1,6 @@
 newstitles = ['主要',
+ 'AERA',
+ 'SOCCER',
  '国内',
  '国際',
  '経済',

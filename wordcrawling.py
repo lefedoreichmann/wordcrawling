@@ -38,11 +38,19 @@ def entry_parser(feed_urls):
          ent_text =""
          enlist = [x.decode('utf-8') for x in r.zrange(feed_url+"/title/"+str(today),0,-1)]
          r.delete(feed_url+"/title/"+str(yesterday))
+         or hour in range(24):
+             if hour <10:
+                r.delete(feed_url+"/title/"+str(yesterday)+"/0"+str(hour))
+                r.delete("all_urls/title/"+str(yesterday)+"/0"+str(hour))
+             else:
+                r.delete(feed_url+"/title/"+str(yesterday)+"/"+str(hour))
+                r.delete("all_urls/title/"+str(yesterday)+"/"+str(hour))
          for entry in feed_result.entries:
 
              if entry.title not in enlist:
                     ent_text+=re.sub(r'[0-9０-９]', "", entry.title)
                     r.zadd(feed_url+"/title/"+str(today),0,str(entry.title))
+                    r.zadd("all_urls/title/"+str(today)+"/"+str(time),0,str(entry.title))
              else:
                 continue
          if ent_text == "":
